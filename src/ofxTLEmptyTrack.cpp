@@ -94,13 +94,13 @@ bool ofxTLEmptyTrack::mousePressed(ofMouseEventArgs& args, long millis){
 	return createNewPoint; //signals that the click made a selection
 }
 
-void ofxTLEmptyTrack::mouseMoved(ofMouseEventArgs& args, long millis){
+bool ofxTLEmptyTrack::mouseMoved(ofMouseEventArgs& args, long millis){
 	
 }
-void ofxTLEmptyTrack::mouseDragged(ofMouseEventArgs& args, long millis){
+bool ofxTLEmptyTrack::mouseDragged(ofMouseEventArgs& args, long millis){
 	
 }
-void ofxTLEmptyTrack::mouseReleased(ofMouseEventArgs& args, long millis){
+bool ofxTLEmptyTrack::mouseReleased(ofMouseEventArgs& args, long millis){
 	
 	//need to create clicks on mouse up if the mouse hasn't moved in order to work
 	//well with the click-drag rectangle thing
@@ -116,7 +116,7 @@ void ofxTLEmptyTrack::mouseReleased(ofMouseEventArgs& args, long millis){
 }
 
 //keys pressed events, and nuding from arrow keys with normalized nudge amount 0 - 1.0
-void ofxTLEmptyTrack::keyPressed(ofKeyEventArgs& args){
+bool ofxTLEmptyTrack::keyPressed(ofKeyEventArgs& args){
 	
 }
 void ofxTLEmptyTrack::nudgeBy(ofVec2f nudgePercent){

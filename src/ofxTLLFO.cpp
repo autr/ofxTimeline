@@ -317,16 +317,17 @@ bool ofxTLLFO::mousePressed(ofMouseEventArgs& args, long millis){
 	}
 }
 
-void ofxTLLFO::mouseMoved(ofMouseEventArgs& args, long millis){
+bool ofxTLLFO::mouseMoved(ofMouseEventArgs& args, long millis){
 	if(drawingLFORect){
 
 	}
 	else{
 		ofxTLKeyframes::mouseMoved(args, millis);
 	}
+    return false;
 }
 
-void ofxTLLFO::mouseDragged(ofMouseEventArgs& args, long millis){
+bool ofxTLLFO::mouseDragged(ofMouseEventArgs& args, long millis){
 	if(drawingLFORect){
 		if(mouseDownRect != NULL && editingParam != NULL){
 			float delta = (args.x-editingClickX)*editingSensitivity;
@@ -339,9 +340,10 @@ void ofxTLLFO::mouseDragged(ofMouseEventArgs& args, long millis){
 	else{
 		ofxTLKeyframes::mouseDragged(args, millis);
 	}
+    return false;
 }
 
-void ofxTLLFO::mouseReleased(ofMouseEventArgs& args, long millis){
+bool ofxTLLFO::mouseReleased(ofMouseEventArgs& args, long millis){
 	if(drawingLFORect){
 		if(mouseDownRect != NULL && mouseDownRect->inside(args.x, args.y)){
 			ofxTLLFOKey* lfokey = (ofxTLLFOKey*)selectedKeyframe;
@@ -394,7 +396,7 @@ void ofxTLLFO::mouseReleased(ofMouseEventArgs& args, long millis){
 }
 
 //keys pressed events, and nuding from arrow keys with normalized nudge amount 0 - 1.0
-void ofxTLLFO::keyPressed(ofKeyEventArgs& args){
+bool ofxTLLFO::keyPressed(ofKeyEventArgs& args){
 	ofxTLKeyframes::keyPressed(args);
 }
 

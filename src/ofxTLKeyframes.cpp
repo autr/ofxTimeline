@@ -454,12 +454,13 @@ void ofxTLKeyframes::updateDragOffsets(ofVec2f screenpoint, long grabMillis){
 	}
 }
 
-void ofxTLKeyframes::mouseMoved(ofMouseEventArgs& args, long millis){
+bool ofxTLKeyframes::mouseMoved(ofMouseEventArgs& args, long millis){
 	ofxTLTrack::mouseMoved(args, millis);
 	hoverKeyframe = keyframeAtScreenpoint( ofVec2f(args.x, args.y));
+    return false;
 }
 
-void ofxTLKeyframes::mouseDragged(ofMouseEventArgs& args, long millis){
+bool ofxTLKeyframes::mouseDragged(ofMouseEventArgs& args, long millis){
 
 
 	if ( ofGetModifierAltPressed() && constrainVerticalDrag != 0.f ) args.y = constrainVerticalDrag;
@@ -495,6 +496,7 @@ void ofxTLKeyframes::mouseDragged(ofMouseEventArgs& args, long millis){
         updateKeyframeSort();
     }
 	createNewOnMouseup = false;
+    return false;
 }
 
 void ofxTLKeyframes::updateKeyframeSort(){
@@ -529,7 +531,7 @@ void ofxTLKeyframes::updateKeyframeSort(){
 	}
 }
 
-void ofxTLKeyframes::mouseReleased(ofMouseEventArgs& args, long millis){
+bool ofxTLKeyframes::mouseReleased(ofMouseEventArgs& args, long millis){
 	keysAreDraggable = false;
     if(keysDidDrag){
 		//reset these caches because they may no longer be valid
@@ -549,6 +551,7 @@ void ofxTLKeyframes::mouseReleased(ofMouseEventArgs& args, long millis){
 		timeline->flagTrackModified(this);
 	}
 	createNewOnMouseup = false;
+    return false;
 }
 
 void ofxTLKeyframes::setKeyframeTime(ofxTLKeyframe* key, unsigned long long newTime){
@@ -769,7 +772,7 @@ void ofxTLKeyframes::loadFromBinaryFile(){
 	shouldRecomputePreviews = true;
 }
 
-void ofxTLKeyframes::keyPressed(ofKeyEventArgs& args){
+bool ofxTLKeyframes::keyPressed(ofKeyEventArgs& args){
 	if(args.key == OF_KEY_DEL || args.key == OF_KEY_BACKSPACE){
 		deleteSelectedKeyframes();
 	}
@@ -781,6 +784,7 @@ void ofxTLKeyframes::keyPressed(ofKeyEventArgs& args){
     {
         addKeyframe( getValue() );
     }
+    return false;
 }
 
 void ofxTLKeyframes::nudgeBy(ofVec2f nudgePercent){

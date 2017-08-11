@@ -181,7 +181,7 @@ void ofxTLImageSequence::mouseDragged(ofMouseEventArgs& args, bool snapped){
 void ofxTLImageSequence::mouseReleased(ofMouseEventArgs& args){
 }
 
-void ofxTLImageSequence::keyPressed(ofKeyEventArgs& args){
+bool ofxTLImageSequence::keyPressed(ofKeyEventArgs& args){
 }
 
 void ofxTLImageSequence::save(){

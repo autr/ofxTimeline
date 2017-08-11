@@ -107,7 +107,11 @@ string ofxTLTrack::getDisplayName(){
 }
 
 string ofxTLTrack::getTrackType(){
-	return "Track";    
+	return "Track";
+}
+
+ofJson ofxTLTrack::getStructure() const{
+    return {{"name", name}};
 }
 
 string ofxTLTrack::getName(){
@@ -223,24 +227,27 @@ bool ofxTLTrack::_mousePressed(ofMouseEventArgs& args, long millis){
 	return false;
 }
 
-void ofxTLTrack::_mouseMoved(ofMouseEventArgs& args, long millis){
+bool ofxTLTrack::_mouseMoved(ofMouseEventArgs& args, long millis){
     if(enabled){
     	hover = bounds.inside(args.x, args.y);
 		mouseMoved(args, millis);
     }
+    return false;
 }
 
-void ofxTLTrack::_mouseDragged(ofMouseEventArgs& args, long millis){
+bool ofxTLTrack::_mouseDragged(ofMouseEventArgs& args, long millis){
     if(enabled){
     	mouseDragged(args, millis);
     }
+    return false;
 }
 
-void ofxTLTrack::_mouseReleased(ofMouseEventArgs& args, long millis){
+bool ofxTLTrack::_mouseReleased(ofMouseEventArgs& args, long millis){
     if(enabled){
         mouseReleased(args, millis);
 	    active = false;
     }
+    return false;
 }
 
 void ofxTLTrack::gainedFocus(){

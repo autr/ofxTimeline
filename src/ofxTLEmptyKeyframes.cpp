@@ -115,21 +115,25 @@ bool ofxTLEmptyKeyframes::mousePressed(ofMouseEventArgs& args, long millis){
 	return ofxTLKeyframes::mousePressed(args, millis);
 }
 
-void ofxTLEmptyKeyframes::mouseMoved(ofMouseEventArgs& args, long millis){
+bool ofxTLEmptyKeyframes::mouseMoved(ofMouseEventArgs& args, long millis){
 	ofxTLKeyframes::mouseMoved(args, millis);
+    return false;
 }
 
-void ofxTLEmptyKeyframes::mouseDragged(ofMouseEventArgs& args, long millis){
+bool ofxTLEmptyKeyframes::mouseDragged(ofMouseEventArgs& args, long millis){
 	ofxTLKeyframes::mouseDragged(args, millis);
+    return false;
 }
 
-void ofxTLEmptyKeyframes::mouseReleased(ofMouseEventArgs& args, long millis){
+bool ofxTLEmptyKeyframes::mouseReleased(ofMouseEventArgs& args, long millis){
 	ofxTLKeyframes::mouseReleased(args, millis);
+    return false;
 }
 
 //keys pressed events, and nuding from arrow keys with normalized nudge amount 0 - 1.0
-void ofxTLEmptyKeyframes::keyPressed(ofKeyEventArgs& args){
+bool ofxTLEmptyKeyframes::keyPressed(ofKeyEventArgs& args){
 	ofxTLKeyframes::keyPressed(args);
+    return false;
 }
 
 void ofxTLEmptyKeyframes::regionSelected(ofLongRange timeRange, ofRange valueRange){

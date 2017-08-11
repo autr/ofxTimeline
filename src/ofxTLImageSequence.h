@@ -76,7 +76,7 @@ class ofxTLImageSequence : public ofxTLTrack {
 	virtual void mouseDragged(ofMouseEventArgs& args, bool snapped);
 	virtual void mouseReleased(ofMouseEventArgs& args);
 	
-	virtual void keyPressed(ofKeyEventArgs& args);
+	virtual bool keyPressed(ofKeyEventArgs& args);
 	
 	virtual void save();
 	virtual void load();

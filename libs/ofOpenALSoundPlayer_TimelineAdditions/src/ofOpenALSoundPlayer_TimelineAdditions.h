@@ -73,8 +73,9 @@ class ofOpenALSoundPlayer_TimelineAdditions : public ofBaseSoundPlayer, public o
 		ofOpenALSoundPlayer_TimelineAdditions();
 		virtual ~ofOpenALSoundPlayer_TimelineAdditions();
 
-		bool load(string fileName, bool stream = false) override;
-		void unload() override;
+//		bool load(string fileName, bool stream = false) override;
+        bool load(string fileName, bool stream = false);
+        void unload() override;
 		void play() override;
 		void stop() override;
 

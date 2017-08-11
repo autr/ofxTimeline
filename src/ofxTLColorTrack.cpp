@@ -152,7 +152,8 @@ void ofxTLColorTrack::drawModalContent(){
 		}
 		colorPallete.draw(colorWindow);
 
-		ofVec2f selectionPoint = colorWindow.getMin() + selectedSample->samplePoint * ofVec2f(colorWindow.width,colorWindow.height);
+#warning changed this
+		ofVec2f selectionPoint = ofVec2f(colorWindow.width,colorWindow.height) * colorWindow.getMin() + selectedSample->samplePoint;
 		ofSetColor(selectedSample->color.getInverted());
 		ofDrawLine(selectionPoint - ofVec2f(8,0), selectionPoint + ofVec2f(8,0));
 		ofDrawLine(selectionPoint - ofVec2f(0,8), selectionPoint + ofVec2f(0,8));
@@ -160,13 +161,13 @@ void ofxTLColorTrack::drawModalContent(){
 		ofPushStyle();
 		ofNoFill();
 		if(previousSample != NULL){
-			ofVec2f previousSamplePoint = colorWindow.getMin() + previousSample->samplePoint * ofVec2f(colorWindow.width,colorWindow.height);
+			ofVec2f previousSamplePoint = ofVec2f(colorWindow.width,colorWindow.height) * colorWindow.getMin() + previousSample->samplePoint;
 			ofSetColor(previousSample->color.getInverted(), 150);
 			ofDrawCircle(previousSamplePoint, 3);
 			ofDrawLine(previousSamplePoint,selectionPoint);
 		}
 		if(nextSample != NULL){
-			ofVec2f nextSamplePoint = colorWindow.getMin() + nextSample->samplePoint * ofVec2f(colorWindow.width,colorWindow.height);
+			ofVec2f nextSamplePoint = ofVec2f(colorWindow.width,colorWindow.height) * colorWindow.getMin() + nextSample->samplePoint;
 			ofSetColor(nextSample->color.getInverted(), 150);
 
 			//draw a little triangle pointer
@@ -290,7 +291,7 @@ bool ofxTLColorTrack::mousePressed(ofMouseEventArgs& args, long millis){
 	}
 }
 
-void ofxTLColorTrack::mouseDragged(ofMouseEventArgs& args, long millis){
+bool ofxTLColorTrack::mouseDragged(ofMouseEventArgs& args, long millis){
 	if(drawingColorWindow){
 		if(clickedInColorRect){
 			ofxTLColorSample* selectedSample = (ofxTLColorSample*)selectedKeyframe;
@@ -306,9 +307,10 @@ void ofxTLColorTrack::mouseDragged(ofMouseEventArgs& args, long millis){
 			shouldRecomputePreviews = true;
 		}
 	}
+    return false;
 }
 
-void ofxTLColorTrack::mouseReleased(ofMouseEventArgs& args, long millis){
+bool ofxTLColorTrack::mouseReleased(ofMouseEventArgs& args, long millis){
 	if(drawingColorWindow){
 		//if(args.button == 0 && !colorWindow.inside(args.x, args.y) ){
 		if(args.button == 0 && !clickedInColorRect && !ofGetModifierControlPressed()){
@@ -324,9 +326,10 @@ void ofxTLColorTrack::mouseReleased(ofMouseEventArgs& args, long millis){
 	else{
 		ofxTLKeyframes::mouseReleased(args, millis);
 	}
+    return false;
 }
 
-void ofxTLColorTrack::keyPressed(ofKeyEventArgs& args){
+bool ofxTLColorTrack::keyPressed(ofKeyEventArgs& args){
 	if(drawingColorWindow){
 		if(args.key == OF_KEY_RETURN){
 			ofxTLColorSample* selectedSample = (ofxTLColorSample*)selectedKeyframe;
@@ -341,6 +344,7 @@ void ofxTLColorTrack::keyPressed(ofKeyEventArgs& args){
 	else{
 		ofxTLKeyframes::keyPressed(args);
 	}
+    return false;
 }
 
 void ofxTLColorTrack::updatePreviewPalette(){

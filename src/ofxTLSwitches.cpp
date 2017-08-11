@@ -247,7 +247,7 @@ bool ofxTLSwitches::mousePressed(ofMouseEventArgs& args, long millis){
         if(!ofGetModifierSelection()){
             timeline->unselectAll();
         }
-		if(ofGetModifierSelection() && clickedTextField->textField.isEditing()){
+		if(ofGetModifierSelection() && clickedTextField->textField.getIsEditing()){
 			clickedTextField->textField.endEditing();
 		}
 		else{
@@ -387,7 +387,7 @@ void ofxTLSwitches::updateEdgeDragOffsets(long clickMillis){
     }
 }
 
-void ofxTLSwitches::mouseDragged(ofMouseEventArgs& args, long millis){
+bool ofxTLSwitches::mouseDragged(ofMouseEventArgs& args, long millis){
     if(enteringText)
         return;
     
@@ -411,9 +411,10 @@ void ofxTLSwitches::mouseDragged(ofMouseEventArgs& args, long millis){
 		
 		updateTimeRanges();
 	}
+    return false;
 }
 
-void ofxTLSwitches::mouseMoved(ofMouseEventArgs& args, long millis){
+bool ofxTLSwitches::mouseMoved(ofMouseEventArgs& args, long millis){
     endHover = startHover = false;
     if(hover && placingSwitch != NULL){
 		placingSwitch->timeRange.max = millis;
@@ -435,6 +436,7 @@ void ofxTLSwitches::mouseMoved(ofMouseEventArgs& args, long millis){
         }
     }
     ofxTLKeyframes::mouseMoved(args, millis);
+    return false;
 }
 
 void ofxTLSwitches::nudgeBy(ofVec2f nudgePercent){
@@ -492,7 +494,7 @@ void ofxTLSwitches::updateTimeRanges(){
     //TODO: no overlaps!!
 }
 
-void ofxTLSwitches::mouseReleased(ofMouseEventArgs& args, long millis){
+bool ofxTLSwitches::mouseReleased(ofMouseEventArgs& args, long millis){
     //if we didn't click on a text field and we are entering txt
     //take off the typing mode. Hitting enter will also do this
     if(enteringText){
@@ -507,7 +509,7 @@ void ofxTLSwitches::mouseReleased(ofMouseEventArgs& args, long millis){
 		else{
 			enteringText = false;
 			for(int i = 0; i < selectedKeyframes.size(); i++){
-				enteringText = enteringText || ((ofxTLSwitch*)selectedKeyframes[i])->textField.isEditing();
+				enteringText = enteringText || ((ofxTLSwitch*)selectedKeyframes[i])->textField.getIsEditing();
 			}
 		}
         
@@ -518,9 +520,10 @@ void ofxTLSwitches::mouseReleased(ofMouseEventArgs& args, long millis){
 	} else {
         ofxTLKeyframes::mouseReleased(args, millis);
     }
+    return false;
 }
 
-void ofxTLSwitches::keyPressed(ofKeyEventArgs& args){
+bool ofxTLSwitches::keyPressed(ofKeyEventArgs& args){
 	
 	if(enteringText){
         //enter key submits the values
@@ -540,6 +543,7 @@ void ofxTLSwitches::keyPressed(ofKeyEventArgs& args){
     } else {
         ofxTLKeyframes::keyPressed(args);
     }
+    return false;
 }
 
 void ofxTLSwitches::regionSelected(ofLongRange timeRange, ofRange valueRange){
@@ -620,7 +624,7 @@ void ofxTLSwitches::storeKeyframe(ofxTLKeyframe* key, ofxXmlSettings& xmlStore){
 
 void ofxTLSwitches::willDeleteKeyframe(ofxTLKeyframe* keyframe){
 	ofxTLSwitch* switchKey = (ofxTLSwitch* )keyframe;
-	if(switchKey->textField.isEditing()){
+	if(switchKey->textField.getIsEditing()){
 		timeline->dismissedModalContent();
 		timeline->flagTrackModified(this);
 	}

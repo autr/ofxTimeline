@@ -145,7 +145,7 @@ void ofxTLPageTabs::clear(){
 	pages.clear();
 }
 
-void ofxTLPageTabs::keyPressed(ofKeyEventArgs& args){
+bool ofxTLPageTabs::keyPressed(ofKeyEventArgs& args){
 
 }
 

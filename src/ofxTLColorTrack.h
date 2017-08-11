@@ -51,9 +51,9 @@ class ofxTLColorTrack : public ofxTLKeyframes {
 	//For selecting keyframe type only,
     //the superclass controls keyframe placement
 	virtual bool mousePressed(ofMouseEventArgs& args, long millis);
-    virtual void mouseDragged(ofMouseEventArgs& args, long millis);
-	virtual void mouseReleased(ofMouseEventArgs& args, long millis);
-	virtual void keyPressed(ofKeyEventArgs& args);
+    virtual bool mouseDragged(ofMouseEventArgs& args, long millis);
+	virtual bool mouseReleased(ofMouseEventArgs& args, long millis);
+	virtual bool keyPressed(ofKeyEventArgs& args);
 
     virtual string getTrackType();
 	

@@ -66,12 +66,12 @@ class ofxTLEmptyTrack : public ofxTLTrack {
 	//is called even if the click is not in the track,
 	//so check isActive() to see if the click is inside
 	virtual bool mousePressed(ofMouseEventArgs& args, long millis);
-	virtual void mouseMoved(ofMouseEventArgs& args, long millis);
-	virtual void mouseDragged(ofMouseEventArgs& args, long millis);
-	virtual void mouseReleased(ofMouseEventArgs& args, long millis);
+	virtual bool mouseMoved(ofMouseEventArgs& args, long millis);
+	virtual bool mouseDragged(ofMouseEventArgs& args, long millis);
+	virtual bool mouseReleased(ofMouseEventArgs& args, long millis);
 
 	//keys pressed events, and nuding from arrow keys with normalized nudge amount 0 - 1.0 
-	virtual void keyPressed(ofKeyEventArgs& args);
+	virtual bool keyPressed(ofKeyEventArgs& args);
 	virtual void nudgeBy(ofVec2f nudgePercent);
 
 	//if your track has some selectable elements you can interface with snapping

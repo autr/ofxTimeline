@@ -49,7 +49,7 @@ class ofxTLZoomer : public ofxTLTrack
 	virtual void mouseDragged(ofMouseEventArgs& args);
 	virtual void mouseReleased(ofMouseEventArgs& args);
 	
-	void keyPressed(ofKeyEventArgs& args);
+	bool keyPressed(ofKeyEventArgs& args);
 	
 	virtual void load();
 	virtual void save();
