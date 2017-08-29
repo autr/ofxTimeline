@@ -54,7 +54,6 @@ string ofxTLCurves::getTrackType() const{
     return TRACK_TYPE;
 }
 
-#warning here
 ofJson ofxTLCurves::getStructure() const{
     return {{"name", name}, {"type", getTrackType()}, {"min", valueRange.min}, {"max", valueRange.max}};
 }

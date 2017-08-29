@@ -152,7 +152,6 @@ void ofxTLColorTrack::drawModalContent(){
 		}
 		colorPallete.draw(colorWindow);
 
-#warning changed this
 		ofVec2f selectionPoint = ofVec2f(colorWindow.width,colorWindow.height) * colorWindow.getMin() + selectedSample->samplePoint;
 		ofSetColor(selectedSample->color.getInverted());
 		ofDrawLine(selectionPoint - ofVec2f(8,0), selectionPoint + ofVec2f(8,0));

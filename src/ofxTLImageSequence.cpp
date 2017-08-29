@@ -149,7 +149,7 @@ ofImage* ofxTLImageSequence::getImageAtTime(float time){
 
 ofImage* ofxTLImageSequence::getImageAtFrame(int frame){
 	if(frame >= frames.size()){
-		ofLog(OF_LOG_ERROR, "THISSequence -- accessing index %d when we only have %d frames. Returning last frame instead.", frame, frames.size());
+		ofLog(OF_LOG_ERROR, "THISSequence -- accessing index %d when we only have %lu frames. Returning last frame instead.", frame, frames.size());
 		frame = frames.size()-1;
 	}
 //	if(thumb){
