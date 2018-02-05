@@ -1,3 +1,21 @@
+## Notes about this fork
+As the original addon is no longer maintained, I have created this fork that has the goal to have a minimal version of ofxTimeline working with Linux, Mac and Win.
+For minimal I mean (for now) without audio and video examples. I'm currently checking the examples one by one, to see if they compile, and fixing them when they do not compile.
+Pull Requests are welcome.
+
+List of the working examples (Tested on Linux and qtCreator)
+- example-audiowaveform (partially, using ofxMaxim)
+- example-timelinelib
+- example-cameratrack
+
+TODO
+
+- add continuous integration test through appveyor and travis
+- find a solution for the audio that works in Linux, Mac and win
+- remove warnings
+
+
+
 # ofxTimeline #
 ![Timeline](http://www.jamesgeorge.org/images/ofxtimeline/github/Header.png)
 
@@ -10,6 +28,9 @@ You can also extend ofxTimeline with custom tracks to work with other types of t
 Copyright 2011-2014 [James George](http://www.jamesgeorge.org) co-developed by [YCAM InterLab](http://interlab.ycam.jp/)
 
 Licensed under the [Apache License](http://www.apache.org/licenses/LICENSE-2.0)
+
+
+
 
 ## Philosophy of Reusable Tools##
 
