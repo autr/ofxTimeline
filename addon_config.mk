@@ -1,15 +1,15 @@
 meta:
 	ADDON_NAME = ofxTimeline
-	ADDON_DESCRIPTION = ofxTimeline is a simple to use openFrameworks add on for creating a user interface to an editable timeline.
+	ADDON_DESCRIPTION = ofxTimeline is a simple to use openFrameworks add on for creating a user interface to an editable timeline. Forked version from original James George addon
 	ADDON_AUTHOR = James George
 	ADDON_TAGS = time timeline curves keyframes
-	ADDON_URL = http://github.com/obviousjim/ofxTimeline
+	ADDON_URL = http://github.com/edapx/ofxTimeline
 
 common:
 	# dependencies with other addons, a list of them separated by spaces 
 	# or use += in several lines
 	ADDON_DEPENDENCIES = ofxXmlSettings
-	ADDON_DEPENDENCIES += ofxTween
+	ADDON_DEPENDENCIES += ofxEasing
 	ADDON_DEPENDENCIES += ofxRange
 	ADDON_DEPENDENCIES += ofxMSATimer
 	ADDON_DEPENDENCIES += ofxTimecode
