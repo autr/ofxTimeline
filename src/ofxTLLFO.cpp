@@ -311,6 +311,7 @@ bool ofxTLLFO::mousePressed(ofMouseEventArgs& args, long millis){
 		if(editingParam != NULL){
 			editingStartValue = *editingParam;
 		}
+        return false;
 	}
 	else{
 		return ofxTLKeyframes::mousePressed(args, millis);
@@ -389,15 +390,17 @@ bool ofxTLLFO::mouseReleased(ofMouseEventArgs& args, long millis){
 			timeline->dismissedModalContent();
 			drawingLFORect = false;
 		}
+        return false;
 	}
 	else{
-		ofxTLKeyframes::mouseReleased(args, millis);
+        return ofxTLKeyframes::mouseReleased(args, millis);
 	}
+
 }
 
 //keys pressed events, and nuding from arrow keys with normalized nudge amount 0 - 1.0
 bool ofxTLLFO::keyPressed(ofKeyEventArgs& args){
-	ofxTLKeyframes::keyPressed(args);
+    return ofxTLKeyframes::keyPressed(args);
 }
 
 string ofxTLLFO::getTrackType(){

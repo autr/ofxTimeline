@@ -124,7 +124,7 @@ bool ofxTLImageSequence::loadSequence(string directory){
     recomputePreview();
 	
     cout << "DONE CREATING FRAMES " << numFiles << " img " << imageWidth << "x" << imageHeight << " thumb " << thumbWidth << "x" << thumbHeight << endl;
-	
+    return false;
 }
 
 float ofxTLImageSequence::getImageWidth(){
@@ -182,6 +182,7 @@ void ofxTLImageSequence::mouseReleased(ofMouseEventArgs& args){
 }
 
 bool ofxTLImageSequence::keyPressed(ofKeyEventArgs& args){
+    return false;
 }
 
 void ofxTLImageSequence::save(){

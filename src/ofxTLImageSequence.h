@@ -37,9 +37,11 @@
 #include "ofxTLImageSequenceFrame.h"
 
 static GLint glTypeForImageType(int imageType){
-	if(imageType == OF_IMAGE_GRAYSCALE) return GL_LUMINANCE;
-	if(imageType == OF_IMAGE_COLOR) return GL_RGB;
-	if(imageType == OF_IMAGE_COLOR_ALPHA) return GL_RGBA;
+    int val = 0;
+    if(imageType == OF_IMAGE_GRAYSCALE) {val = GL_LUMINANCE;}
+    if(imageType == OF_IMAGE_COLOR) {val = GL_RGB;}
+    if(imageType == OF_IMAGE_COLOR_ALPHA) {val = GL_RGBA;}
+    return val;
 }
 
 typedef struct

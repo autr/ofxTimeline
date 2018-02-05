@@ -389,7 +389,7 @@ void ofxTLSwitches::updateEdgeDragOffsets(long clickMillis){
 
 bool ofxTLSwitches::mouseDragged(ofMouseEventArgs& args, long millis){
     if(enteringText)
-        return;
+        return false;
     
     //do the normal dragging behavior for selected keyframes
     ofxTLKeyframes::mouseDragged(args, millis);
@@ -418,7 +418,7 @@ bool ofxTLSwitches::mouseMoved(ofMouseEventArgs& args, long millis){
     endHover = startHover = false;
     if(hover && placingSwitch != NULL){
 		placingSwitch->timeRange.max = millis;
-		return;
+        return false;
 	}
 	
     for(int i = 0; i < keyframes.size(); i++){
@@ -426,13 +426,13 @@ bool ofxTLSwitches::mouseMoved(ofMouseEventArgs& args, long millis){
         if(abs(switchKey->display.x - args.x) < 10.0 && bounds.inside(args.x,args.y)){
             hoverKeyframe = switchKey;
             startHover = true;
-            return; //return cancels call to parent
+            return false; //return cancels call to parent
         }
         float endEdge = switchKey->display.x+switchKey->display.width;
         if(abs(endEdge - args.x) < 10.0 && bounds.inside(args.x,args.y)){
             hoverKeyframe = switchKey;
             endHover = true;
-            return; //cancels call to parent
+            return false; //cancels call to parent
         }
     }
     ofxTLKeyframes::mouseMoved(args, millis);

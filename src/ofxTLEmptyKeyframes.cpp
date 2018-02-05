@@ -81,18 +81,18 @@ ofColor ofxTLEmptyKeyframes::getCurrentColor(){
 }
 
 ofColor ofxTLEmptyKeyframes::getColorAtTime(unsigned long long sampleTime){
-	
+    ofColor color = ofColor(0., 0., 0, 1.);
 	//return black if there are no frames
 	if(keyframes.size() == 0){
-		return ofColor(0,0,0);
+        color = ofColor(0,0,0);
 	}
 	//just one, or sampling before the first we can just return the first
 	if(keyframes.size() == 1 || keyframes[0]->time >= sampleTime){
-		return ((ofxTLEmptyKeyframe*)keyframes[0])->color;
+        color = ((ofxTLEmptyKeyframe*)keyframes[0])->color;
 	}
 	//sampling after the last we return the last
 	if(keyframes[keyframes.size()-1]->time <= sampleTime){
-		return ((ofxTLEmptyKeyframe*)keyframes[keyframes.size()-1])->color;
+        color = ((ofxTLEmptyKeyframe*)keyframes[keyframes.size()-1])->color;
 	}
 	
 	//now we are somewhere in between, search
@@ -103,9 +103,11 @@ ofColor ofxTLEmptyKeyframes::getColorAtTime(unsigned long long sampleTime){
 			ofxTLEmptyKeyframe* nextKey  = (ofxTLEmptyKeyframe*)keyframes[i];
 			//interpolate
 			float alpha = ofMap(sampleTime, prevKey->time, nextKey->time, 0, 1.0);
-			return prevKey->color.getLerped(nextKey->color, alpha);
+            color = prevKey->color.getLerped(nextKey->color, alpha);
 		}
 	}
+
+    return color;
 }
 
 bool ofxTLEmptyKeyframes::mousePressed(ofMouseEventArgs& args, long millis){

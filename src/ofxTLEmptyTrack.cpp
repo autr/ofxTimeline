@@ -95,10 +95,10 @@ bool ofxTLEmptyTrack::mousePressed(ofMouseEventArgs& args, long millis){
 }
 
 bool ofxTLEmptyTrack::mouseMoved(ofMouseEventArgs& args, long millis){
-	
+    return false;
 }
 bool ofxTLEmptyTrack::mouseDragged(ofMouseEventArgs& args, long millis){
-	
+    return false;
 }
 bool ofxTLEmptyTrack::mouseReleased(ofMouseEventArgs& args, long millis){
 	
@@ -113,11 +113,12 @@ bool ofxTLEmptyTrack::mouseReleased(ofMouseEventArgs& args, long millis){
 		//will trigger save and needed for undo
 		timeline->flagTrackModified(this);
 	}
+    return false;
 }
 
 //keys pressed events, and nuding from arrow keys with normalized nudge amount 0 - 1.0
 bool ofxTLEmptyTrack::keyPressed(ofKeyEventArgs& args){
-	
+    return false;
 }
 void ofxTLEmptyTrack::nudgeBy(ofVec2f nudgePercent){
 	

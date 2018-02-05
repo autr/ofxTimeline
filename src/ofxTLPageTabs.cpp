@@ -146,7 +146,7 @@ void ofxTLPageTabs::clear(){
 }
 
 bool ofxTLPageTabs::keyPressed(ofKeyEventArgs& args){
-
+    return false;
 }
 
 void ofxTLPageTabs::drawRectChanged(){
