@@ -15,8 +15,8 @@ List of the working examples (Tested on Linux and qtCreator)
 TODO
 
 - [x] add continuous integration test through appveyor and travis
-- [] find a solution for the audio that works in Linux, Mac and win
-- [] remove warnings
+- [ ] find a solution for the audio that works in Linux, Mac and win
+- [ ] remove warnings
 
 
 
