@@ -1,3 +1,7 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/by0sqtvfl21x4bts?svg=true)](https://ci.appveyor.com/project/edap/ofxtimeline)
+
+
+
 ## Notes about this fork
 As the original addon is no longer maintained, I have created this fork that has the goal to have a minimal version of ofxTimeline working with Linux, Mac and Win.
 For minimal I mean (for now) without audio and video examples. I'm currently checking the examples one by one, to see if they compile, and fixing them when they do not compile.
