@@ -1,11 +1,11 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/by0sqtvfl21x4bts?svg=true)](https://ci.appveyor.com/project/edap/ofxtimeline)
-
+[![Build status](https://travis-ci.org/edap/ofxTimeline.svg?branch=master)](https://travis-ci.org/edap/ofxTimeline)
 
 
 ## Notes about this fork
 As the original addon is no longer maintained, I have created this fork that has the goal to have a minimal version of ofxTimeline working with Linux, Mac and Win.
 For minimal I mean (for now) without audio and video examples. I'm currently checking the examples one by one, to see if they compile, and fixing them when they do not compile.
-Pull Requests are welcome.
+Pull Requests are welcome!
 
 List of the working examples (Tested on Linux and qtCreator)
 - example-audiowaveform (partially, using ofxMaxim)
@@ -14,9 +14,9 @@ List of the working examples (Tested on Linux and qtCreator)
 
 TODO
 
-- add continuous integration test through appveyor and travis
-- find a solution for the audio that works in Linux, Mac and win
-- remove warnings
+- [x] add continuous integration test through appveyor and travis
+- [] find a solution for the audio that works in Linux, Mac and win
+- [] remove warnings
 
 
 
