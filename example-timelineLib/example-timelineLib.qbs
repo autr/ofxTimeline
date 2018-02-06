@@ -25,6 +25,7 @@ Project{
          of.addons: [
              'ofxTimeline',
              'ofxRange',
+             'ofxTween2',
              //'ofxAudioDecoder',
              'ofxMSATimer',
              'ofxTimecode',
