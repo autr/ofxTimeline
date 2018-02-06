@@ -33,7 +33,7 @@
 
 #include "ofMain.h"
 #include "ofxTimeline.h"
-#include "ofxTLAudioTrack.h"
+#include "ofxMaxim.h"
 
 class ofApp : public ofBaseApp{
 
@@ -51,6 +51,21 @@ class ofApp : public ofBaseApp{
 	void windowResized(int w, int h);
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
+    // Audio output and input methods
+    void audioOut(float * output, int bufferSize, int nChannels);
 	
 	ofxTimeline timeline;
+
+
+
+
+    int		bufferSize;
+    int		sampleRate;
+    int     fftSize;
+
+    ofxMaxiSample sample;
+    maxiMix mymix;
+    double wave;
+    double outputs[2];
+    ofxMaxiFFT fft;
 };
