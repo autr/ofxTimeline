@@ -3,5 +3,6 @@ ofxRange
 ofxTextInputField
 ofxTimecode
 ofxTimeline
-ofxTween
+ofxTween2
 ofxXmlSettings
+ofxEasing

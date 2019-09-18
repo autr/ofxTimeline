@@ -23,3 +23,5 @@ echo "If you're using linux, please make sure you checkout the develop branch of
 ${PREFIX}Flightphase/ofxRange.git
 
 ${PREFIX}prisonerjohn/ofxAudioDecoder.git
+
+${PREFIX}arturoc/ofxEasing.git

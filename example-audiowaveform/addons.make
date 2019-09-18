@@ -1,8 +1,10 @@
-ofxAudioDecoder
-ofxMSATimer
-ofxRange
-ofxTextInputField
-ofxTimecode
 ofxTimeline
-ofxTween
+ofxRange
+ofxEasing
+ofxMaxim
+ofxTween2
+ofxMSATimer
+ofxTimecode
+ofxTextInputField
 ofxXmlSettings
+ofxAudioDecoder

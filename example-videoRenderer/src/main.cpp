@@ -6,6 +6,7 @@
  * that can be rendered to an image sequence
  */
 
+
 #include "ofMain.h"
 #include "ofApp.h"
 #include "ofAppGlutWindow.h"
