@@ -523,6 +523,8 @@ CameraTrackEase ofxTLCameraTrack::getNextEase(CameraTrackEase ease){
         default:
             return OFXTL_CAMERA_EASE_LINEAR;
     }
+
+    return OFXTL_CAMERA_EASE_SMOOTH;
 }
 
 CameraTrackEase ofxTLCameraTrack::getPreviousEase(CameraTrackEase ease){
@@ -536,4 +538,6 @@ CameraTrackEase ofxTLCameraTrack::getPreviousEase(CameraTrackEase ease){
         default:
             return OFXTL_CAMERA_EASE_SMOOTH;
     }
+
+    return OFXTL_CAMERA_EASE_SMOOTH;
 }

@@ -124,7 +124,8 @@ bool ofxTLImageSequence::loadSequence(string directory){
     recomputePreview();
 	
     cout << "DONE CREATING FRAMES " << numFiles << " img " << imageWidth << "x" << imageHeight << " thumb " << thumbWidth << "x" << thumbHeight << endl;
-    return false;
+
+    return loaded;
 }
 
 float ofxTLImageSequence::getImageWidth(){

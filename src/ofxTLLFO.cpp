@@ -316,6 +316,8 @@ bool ofxTLLFO::mousePressed(ofMouseEventArgs& args, long millis){
 	else{
 		return ofxTLKeyframes::mousePressed(args, millis);
 	}
+
+    return false;
 }
 
 bool ofxTLLFO::mouseMoved(ofMouseEventArgs& args, long millis){
