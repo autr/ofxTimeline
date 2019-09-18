@@ -57,10 +57,10 @@ class ofxTLVideoTrack : public ofxTLImageTrack, public ofThread {
 	virtual void update();
 //	virtual void update(ofEventArgs& args);
 	virtual bool mousePressed(ofMouseEventArgs& args, long millis);
-	virtual void mouseMoved(ofMouseEventArgs& args, long millis);
-	virtual void mouseDragged(ofMouseEventArgs& args, long millis);
+    virtual bool mouseMoved(ofMouseEventArgs& args, long millis);
+    virtual bool mouseDragged(ofMouseEventArgs& args, long millis);
 	
-	virtual void keyPressed(ofKeyEventArgs& args);
+    virtual bool keyPressed(ofKeyEventArgs& args);
 			
     virtual void playbackStarted(ofxTLPlaybackEventArgs& args);
 	virtual void playbackLooped(ofxTLPlaybackEventArgs& args);

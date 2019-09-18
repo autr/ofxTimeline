@@ -469,16 +469,19 @@ bool ofxTLVideoTrack::mousePressed(ofMouseEventArgs& args, long millis){
   return false;
 }
 
-void ofxTLVideoTrack::mouseMoved(ofMouseEventArgs& args, long millis){
-  ofxTLTrack::mouseMoved(args, millis);
+bool ofxTLVideoTrack::mouseMoved(ofMouseEventArgs& args, long millis){
+  return ofxTLTrack::mouseMoved(args, millis);
 }
 
-void ofxTLVideoTrack::mouseDragged(ofMouseEventArgs& args, long millis){
+bool ofxTLVideoTrack::mouseDragged(ofMouseEventArgs& args, long millis){
   if(isActive()){
     selectFrame( timeline->getTimecode().frameForMillis(millis) );
     if(timeline->getMovePlayheadOnDrag()){
       timeline->setPercentComplete(screenXtoNormalizedX(args.x));
     }
+    return true;
+  } else {
+      return false;
   }
 }
 
@@ -504,7 +507,7 @@ float ofxTLVideoTrack::getContentHeight(){
 }
 
 
-void ofxTLVideoTrack::keyPressed(ofKeyEventArgs& args){
+bool ofxTLVideoTrack::keyPressed(ofKeyEventArgs& args){
   if(isLoaded() && hasFocus()){
     if(args.key == OF_KEY_LEFT){
       selectFrame(MAX(selectedFrame-1, 0));
@@ -514,7 +517,10 @@ void ofxTLVideoTrack::keyPressed(ofKeyEventArgs& args){
       selectFrame(MIN(selectedFrame+1, player->getTotalNumFrames()-1));
       timeline->setCurrentFrame(player->getCurrentFrame());
     }
-  }	
+    return true;
+  }	 else {
+      return false;
+  }
 }
 
 int ofxTLVideoTrack::selectFrame(int frame){

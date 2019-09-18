@@ -240,16 +240,20 @@ bool ofxTLAudioTrack::mousePressed(ofMouseEventArgs& args, long millis){
 	return false;
 }
 
-void ofxTLAudioTrack::mouseMoved(ofMouseEventArgs& args, long millis){
+bool ofxTLAudioTrack::mouseMoved(ofMouseEventArgs& args, long millis){
+    return false;
 }
 
-void ofxTLAudioTrack::mouseDragged(ofMouseEventArgs& args, long millis){
+bool ofxTLAudioTrack::mouseDragged(ofMouseEventArgs& args, long millis){
+    return false;
 }
 
-void ofxTLAudioTrack::mouseReleased(ofMouseEventArgs& args, long millis){
+bool ofxTLAudioTrack::mouseReleased(ofMouseEventArgs& args, long millis){
+    return false;
 }
 
-void ofxTLAudioTrack::keyPressed(ofKeyEventArgs& args){
+bool ofxTLAudioTrack::keyPressed(ofKeyEventArgs& args){
+    return false;
 }
 
 void ofxTLAudioTrack::zoomStarted(ofxTLZoomEventArgs& args){

@@ -53,11 +53,11 @@ class ofxTLAudioTrack : public ofxTLTrack
 	virtual string getSoundfilePath();
 	
 	virtual bool mousePressed(ofMouseEventArgs& args, long millis);
-	virtual void mouseMoved(ofMouseEventArgs& args, long millis);
-	virtual void mouseDragged(ofMouseEventArgs& args, long millis);
-	virtual void mouseReleased(ofMouseEventArgs& args, long millis);
+    virtual bool mouseMoved(ofMouseEventArgs& args, long millis);
+    virtual bool mouseDragged(ofMouseEventArgs& args, long millis);
+    virtual bool mouseReleased(ofMouseEventArgs& args, long millis);
 	
-	virtual void keyPressed(ofKeyEventArgs& args);
+    virtual bool keyPressed(ofKeyEventArgs& args);
 	
 	//this will play the timeline along to the audio
     virtual bool togglePlay();
